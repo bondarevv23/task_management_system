@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: INSERT-USERS
+      author: Vladimir Bondarev
+  - include:
+      file: insert_users.sql
+      relativeToChangelogFile: true
