@@ -22,4 +22,4 @@ TaskManagementSystemApplication.
 миграции написаны на SQL.
 
 Swagger документация и swagger-ui доступны по адресам http://localhost:8081/api-docs и
-http://localhost:8081/swagger-ui.html соответственно.
+http://localhost:8081/swagger-ui/index.html соответственно.

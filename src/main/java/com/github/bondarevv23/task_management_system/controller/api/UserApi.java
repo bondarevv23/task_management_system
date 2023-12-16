@@ -1,5 +1,6 @@
 package com.github.bondarevv23.task_management_system.controller.api;
 
+import com.github.bondarevv23.task_management_system.exceptions.ExceptionResponse;
 import com.github.bondarevv23.task_management_system.model.api.RefreshTokenRequest;
 import com.github.bondarevv23.task_management_system.model.api.TokenResponse;
 import com.github.bondarevv23.task_management_system.model.api.UserCredentials;
@@ -20,56 +21,78 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Tag(name = "users")
 public interface UserApi {
 
-    @Operation(summary = "log in to user account")
+    @Operation(
+            summary = "log in to user account",
+            description = "The method accepts the user credentials and tries to authenticate him."
+    )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "user successfully logged in",
-                    content = {
-                            @Content(
-                                    mediaType = "application/json",
-                                    schema = @Schema(implementation = TokenResponse.class)
-                            )
-                    }),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "invalid request passed"
+                    description = "user successfully logged in"
             ),
             @ApiResponse(
+                    responseCode = "400",
+                    description = "invalid request passed",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )),
+            @ApiResponse(
                     responseCode = "401",
-                    description = "invalid user credentials"
-            )})
+                    description = "invalid user credentials",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    ))})
     @PostMapping(
             path = "/get-token",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    ResponseEntity<TokenResponse> getToken(@Valid @RequestBody UserCredentials credentials);
+    ResponseEntity<TokenResponse> getToken(
+            @Valid
+            @RequestBody
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "user credentials",
+                    required = true
+            )
+            UserCredentials credentials);
 
-    @Operation(summary = "refresh jwt")
+    @Operation(
+            summary = "refresh jwt",
+            description = "The method accepts the refresh token and tries to refresh bearer token"
+    )
     @ApiResponses(value = {
             @ApiResponse(
                     responseCode = "200",
-                    description = "token successfully refreshed",
-                    content = {
-                            @Content(
-                                    mediaType = "application/json",
-                                    schema = @Schema(implementation = TokenResponse.class)
-                            )
-                    }),
-            @ApiResponse(
-                    responseCode = "400",
-                    description = "invalid request passed"
+                    description = "token successfully refreshed"
             ),
             @ApiResponse(
+                    responseCode = "400",
+                    description = "invalid request passed",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    )),
+            @ApiResponse(
                     responseCode = "401",
-                    description = "invalid user credentials"
-            )})
+                    description = "invalid user credentials",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ExceptionResponse.class)
+                    ))})
     @PostMapping(
             path = "/refresh-token",
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    ResponseEntity<TokenResponse> refreshToken(@Valid @RequestBody RefreshTokenRequest request);
+    ResponseEntity<TokenResponse> refreshToken(
+            @Valid
+            @RequestBody
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(
+                    description = "jwt token to refresh",
+                    required = true
+            )
+            RefreshTokenRequest request);
 
 }

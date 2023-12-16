@@ -1,5 +1,6 @@
 package com.github.bondarevv23.task_management_system.model.api;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
@@ -9,8 +10,10 @@ import lombok.Data;
 @Builder
 public class CommentRequest {
     @NotNull
+    @Schema(example = "123456789")
     private Integer taskId;
 
     @NotBlank
+    @Schema(example = "text comment to some task")
     private String text;
 }
