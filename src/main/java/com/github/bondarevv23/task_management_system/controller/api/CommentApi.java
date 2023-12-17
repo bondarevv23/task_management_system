@@ -1,6 +1,6 @@
 package com.github.bondarevv23.task_management_system.controller.api;
 
-import com.github.bondarevv23.task_management_system.exceptions.ExceptionResponse;
+import com.github.bondarevv23.task_management_system.model.api.ExceptionResponse;
 import com.github.bondarevv23.task_management_system.model.api.CommentDTO;
 import com.github.bondarevv23.task_management_system.model.api.CommentRequest;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,8 +15,6 @@ import jakarta.validation.Valid;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Locale;
 
 @RequestMapping("api/v1/comments")
 @Tag(name = "comments")

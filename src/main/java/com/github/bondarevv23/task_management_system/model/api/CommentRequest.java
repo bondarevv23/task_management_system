@@ -14,6 +14,6 @@ public class CommentRequest {
     private Integer taskId;
 
     @NotBlank
-    @Schema(example = "text comment to some task")
+    @Schema(example = "some comment text")
     private String text;
 }

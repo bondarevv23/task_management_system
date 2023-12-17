@@ -23,3 +23,12 @@ TaskManagementSystemApplication.
 
 Swagger документация и swagger-ui доступны по адресам http://localhost:8081/api-docs и
 http://localhost:8081/swagger-ui/index.html соответственно.
+
+Для фильтрации rest запросов используется библиотека [Spring Filter](https://github.com/turkraft/springfilter).
+
+Единственный "открытый" контроллер **/api/v1/users/..**, который используется для аутентификации,
+ограничен по количеству запросов при помощи **bucket4j**. Для работы bucket4j используется
+**caffeine cache**.
+
+Запрос и ответ каждого эндпоинта [логируется](src/main/java/com/github/bondarevv23/task_management_system/aop/InboundRequestAdvice.java),
+для этого используется **spring-aop**.

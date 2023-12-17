@@ -8,7 +8,7 @@ import com.github.bondarevv23.task_management_system.model.Task;
 import com.github.bondarevv23.task_management_system.model.User;
 import com.github.bondarevv23.task_management_system.model.api.CommentDTO;
 import com.github.bondarevv23.task_management_system.model.api.CommentRequest;
-import com.github.bondarevv23.task_management_system.model.mapper.CommentMapper;
+import com.github.bondarevv23.task_management_system.model.mapper.TaskMapper;
 import com.github.bondarevv23.task_management_system.repository.CommentRepository;
 import com.github.bondarevv23.task_management_system.repository.TaskRepository;
 import com.github.bondarevv23.task_management_system.repository.UserRepository;
@@ -26,7 +26,7 @@ public class CommentServiceImpl implements CommentService {
     private final CommentRepository commentRepository;
     private final UserRepository userRepository;
     private final TaskRepository taskRepository;
-    private final CommentMapper mapper;
+    private final TaskMapper mapper;
 
     @Override
     public CommentDTO write(UUID authorId, CommentRequest request) {

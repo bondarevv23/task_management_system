@@ -11,6 +11,24 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  cache:
+    cache-names:
+      - rate-limit-buckets
+    caffeine:
+      spec: maximumSize=100000,expireAfterAccess=3600s
+
+bucket4j:
+  enabled: true
+  filters:
+    - cache-name: rate-limit-buckets
+      url: /api/v1/users.*
+      strategy: first
+      http-response-body: "{ \"status\": 429, \"error\": \"Too Many Requests\", \"message\": \"The server cannot process your request now, please try again later\" }"
+      rate-limits:
+        - bandwidths:
+            - capacity: 5
+              time: 10
+              unit: seconds
 
 server:
   port: 8081

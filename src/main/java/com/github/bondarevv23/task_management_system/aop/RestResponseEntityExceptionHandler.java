@@ -1,5 +1,7 @@
-package com.github.bondarevv23.task_management_system.exceptions;
+package com.github.bondarevv23.task_management_system.aop;
 
+import com.github.bondarevv23.task_management_system.exceptions.BaseTaskManagementSystemException;
+import com.github.bondarevv23.task_management_system.model.api.ExceptionResponse;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;

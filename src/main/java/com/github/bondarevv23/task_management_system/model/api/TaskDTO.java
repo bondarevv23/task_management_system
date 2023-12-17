@@ -34,10 +34,8 @@ public class TaskDTO {
     private List<CommentDTO> comments;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @EqualsExclude
     private LocalDateTime created;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @EqualsExclude
     private LocalDateTime modified;
 }

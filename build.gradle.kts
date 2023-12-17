@@ -35,6 +35,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	developmentOnly("org.springframework.boot:spring-boot-docker-compose")
+	implementation("org.springframework.boot:spring-boot-starter-aop")
+	implementation("org.springframework.boot:spring-boot-starter-cache")
 
 	// docs
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
@@ -65,6 +67,15 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}")
 	testAnnotationProcessor("org.mapstruct:mapstruct-processor:${mapstructVersion}")
 	testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
+
+	// bucket4j
+	implementation("com.giffing.bucket4j.spring.boot.starter:bucket4j-spring-boot-starter:0.10.1")
+
+	// cache
+	implementation("javax.cache:cache-api:1.1.1")
+	implementation("com.github.ben-manes.caffeine:caffeine:3.1.8")
+	implementation("com.github.ben-manes.caffeine:jcache:3.1.8")
+
 }
 
 tasks.withType<Test> {

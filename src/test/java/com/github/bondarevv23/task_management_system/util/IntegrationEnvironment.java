@@ -60,6 +60,11 @@ public abstract class IntegrationEnvironment {
                 () -> KEYCLOAK.getAuthServerUrl() + "/realms/tasks-manager/protocol/openid-connect/token");
     }
 
+    @DynamicPropertySource
+    static void disableBucket4j(DynamicPropertyRegistry registry) {
+        registry.add("bucket4j.enabled", () -> "false");
+    }
+
     protected String getAccessToken(UserCredentials credentials) {
         return client.post()
                 .uri("api/v1/users/get-token")

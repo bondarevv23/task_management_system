@@ -1,6 +1,6 @@
 package com.github.bondarevv23.task_management_system.controller.api;
 
-import com.github.bondarevv23.task_management_system.exceptions.ExceptionResponse;
+import com.github.bondarevv23.task_management_system.model.api.ExceptionResponse;
 import com.github.bondarevv23.task_management_system.model.api.RefreshTokenRequest;
 import com.github.bondarevv23.task_management_system.model.api.TokenResponse;
 import com.github.bondarevv23.task_management_system.model.api.UserCredentials;

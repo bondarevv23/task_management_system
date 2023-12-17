@@ -1,4 +1,4 @@
-package com.github.bondarevv23.task_management_system.exceptions;
+package com.github.bondarevv23.task_management_system.model.api;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
