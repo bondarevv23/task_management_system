@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: TEST_DATA
+      author: Vladimir Bondarev
+  - include:
+      file: test_data.sql
+      relativeToChangelogFile: true

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: changeset/1_init/_changelog.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changeset/2_users/_changelog.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changeset/3_created-time/_changelog.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changeset/4_test-data/_changelog.yaml
+      relativeToChangelogFile: true

@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: CREATED-TIME
+      author: Vladimir Bondarev
+  - include:
+      file: created_time.sql
+      relativeToChangelogFile: true

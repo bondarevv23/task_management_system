@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: INIT-DB
+      author: Vladimir Bondarev
+  - include:
+      file: create-tables.sql
+      relativeToChangelogFile: true
