@@ -1,7 +1,4 @@
-# tasks_management_system
-
-Для локального запуска проекта достаточно запустить main в основном spring классе
-TaskManagementSystemApplication.
+# task_management_system
 
 В проекте используется Keycloak, он настроен в compose.yaml, 
 при запуске контейнера конфигурация realm'а экспортируется из файла
